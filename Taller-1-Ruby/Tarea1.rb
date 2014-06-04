@@ -36,7 +36,7 @@ class FileManager
   
 end 
 
-fileManager = FileManager.new("/home/action/workspace/nitrous-ruby-on-rails/")
+fileManager = FileManager.new("/home/action/workspace/nitrous-ruby-on-rails/Taller-1-Ruby/")
 
 puts "###################Old Lines#####################"
 puts lines = fileManager.openFile("OldFile.txt")
