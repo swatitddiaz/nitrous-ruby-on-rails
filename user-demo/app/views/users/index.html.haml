@@ -1,0 +1,17 @@
+%center
+  %h1 Lista de Usuarios
+  %table.table
+    %tr
+      %th Nombre
+      %th Correo
+      %th Detalle
+      %th Editar
+      %th Eliminar
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.mail
+        %td= link_to 'show', user
+        %td= link_to 'Edit', edit_user_path(user)
+        %td= link_to 'Destroy', user, method: :delete, data: {confirm: 'Esta seguro?'}
+  %span.glyphicon.glyphicon-plus= link_to 'Nuevo Usuario', nuevo_path
