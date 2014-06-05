@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   
   root "users#index" 
   
+  get '/nuevo' => 'users#new', as: 'nuevo'
+  
+  get '/nose' => redirect('/users/new')
+  
+  get '/google' => redirect('http://google.com')  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

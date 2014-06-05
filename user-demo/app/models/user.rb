@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   #has_many :tweets
   #belong_to :user
   
-  validates_presence_of :name, message: "Mensaje de campo requerido"
+  validates_presence_of :name, message: "Falta el nombre"
  
 end 
 

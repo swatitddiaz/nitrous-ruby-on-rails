@@ -1,20 +1,24 @@
 class UsersController < ApplicationController
 
+  before_action :setUser,only: [:show, :edit, :update, :destroy]
+  
   def index
     @users = User.all    
   end
   
   def show
-    @user = User.find(params[:id])
     #render action: "otroNombre"
-  end
-  
-  def edit
-    @user = User.find(params[:id])
   end
   
   def new 
     @user = User.new    
+  end
+  
+  def edit
+    if @user.name=="Diego"
+      flash[:notice]="Soy el usuario Diego"
+      redirect_to users_url
+    end
   end
   
   def create
@@ -22,16 +26,39 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       if @user.save
-        format.html{redirect_to @user, notice: "No se pudo crear el usuario"}
+        format.html{redirect_to @user, notice: "Usuario creado exitosamente"}
       else
         format.html{render :new}    
       end
     end
   end
     
-  def user_params
+  def update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html{redirect_to @user, notice: "Usuario modificado exitosamente"}
+      else
+        format.html{render :edit}    
+      end
+    end
+  end
   
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html{redirect_to @user, notice: "Usuario eliminado exitosamente"}
+    end
+  end
+  
+  private  def user_params
     params.require(:user).permit(:name,:mail)
+  end
+  
+  private def setUser
+    @user = User.find(params[:id])
+  end
+  
+  private def setFormat
     
   end
   
