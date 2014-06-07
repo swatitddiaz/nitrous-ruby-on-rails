@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  
+  resources :users
+  
   get 'pages/home'
 
   get 'pages/about'
@@ -8,6 +12,8 @@ Rails.application.routes.draw do
   get 'pages/contact'
   
   root 'pages#home'
+  
+  get '/nuevo' => 'users#new', as: 'nuevo'
 
   get '/pages' => 'pages#home', as: 'pages_index'
 
