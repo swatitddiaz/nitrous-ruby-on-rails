@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :users
   
-  root "users#index" 
+  root "users#login" 
   
   get '/nuevo' => 'users#new', as: 'nuevo'
   

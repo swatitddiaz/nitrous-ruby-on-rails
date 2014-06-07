@@ -1,4 +1,6 @@
-= form_for (@user) do |f|
+%center
+  %h1 Nuevo Usuario
+  = form_for (@user) do |f|
   -if @user.errors.any?
     #error_explanation
       %h3
@@ -8,10 +10,6 @@
         - @user.errors.full_messages.each do |message|
           %li= message
   %form
-    = f.label 'Nombre'
-    \:
-    \#{f.text_field :name, class: 'form-control'}
-    %br/
     = f.label 'Correo'
     \:
     \#{f.text_field :mail, class: 'form-control'}
@@ -19,12 +17,7 @@
     = f.label 'Contraseña'
     \:
     \#{f.text_field :password, class: 'form-control'}
-    %br/
-    = f.label 'Confirmar contraseña'
-    \:
-    \#{f.text_field :password_confirmation, class: 'form-control'}
+    
     %br/
     %br/
-    = f.submit 'Enviar', :class => 'btn btn-primary'
-    .btn.btn-default
-      = link_to 'Volver', users_path
+    = f.metodo 'LogIn', :class => 'btn btn-primary'

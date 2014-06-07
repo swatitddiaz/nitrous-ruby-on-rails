@@ -6,7 +6,15 @@ class UsersController < ApplicationController
     @users = User.all    
   end
   
+  def metodo
+    puts "holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  end
+  
+  
   def show
+    puts "name"
+    puts @user.name
+    puts "end"
     #render action: "otroNombre"
   end
   
@@ -51,7 +59,7 @@ class UsersController < ApplicationController
   end
   
   private  def user_params
-    params.require(:user).permit(:name,:mail)
+    params.require(:user).permit(:name,:mail,:password,:password_confirmation)
   end
   
   private def setUser
