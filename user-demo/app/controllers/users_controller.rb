@@ -4,12 +4,7 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all    
-  end
-  
-  def metodo
-    puts "holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-  end
-  
+  end 
   
   def show
     puts "name"
