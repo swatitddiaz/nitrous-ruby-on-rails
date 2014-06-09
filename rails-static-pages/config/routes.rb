@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   
-  resources :sessions, only: [:new, :create, :destroy]
-  
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :sessions,   only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
@@ -21,6 +26,8 @@ Rails.application.routes.draw do
   get '/nuevo' => 'users#new', as: 'nuevo'
 
   get '/pages' => 'pages#home', as: 'pages_index'
+
+  get '/sessions' => 'sessions#new', as: 'sessiones'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
