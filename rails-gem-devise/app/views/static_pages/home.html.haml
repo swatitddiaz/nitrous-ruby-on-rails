@@ -1,0 +1,12 @@
+.center.hero-unit
+  %h1 Registered Users
+  %h2
+  %table
+    %thead
+      %tr
+        %th Registered Mails
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.email
+= link_to image_tag("rails.gif", alt: "Rails"), '#'

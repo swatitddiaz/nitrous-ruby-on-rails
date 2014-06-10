@@ -1,0 +1,17 @@
+%h2 Crear Cuenta
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  %div
+    = f.label 'Email'
+    %br/
+    = f.email_field :email, autofocus: true
+  %div
+    = f.label 'Contraseña'
+    %br/
+    = f.password_field :password, autocomplete: "off"
+  %div
+    = f.label 'Confirmar Contraseña'
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "off"
+  %div= f.submit "Crear Cuenta"
+= render "devise/shared/links"

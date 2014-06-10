@@ -1,0 +1,15 @@
+%header.navbar.navbar-fixed-top.navbar-inverse
+  .navbar-inner
+    .container
+      = link_to "Login Test", '#', id: "logo"
+      %nav
+        %ul.nav.pull-right
+          %li= link_to "Home", "/static_pages/home"
+          %li= link_to "DB Admin", "/admin"
+          - if user_signed_in?
+            %li= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
+            %li= link_to "Logout", destroy_user_session_path, method: :delete, :class => |
+                'navbar-link'                                                           |
+          - else
+            %li= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
+            %li= link_to "Login", new_user_session_path, :class => 'navbar-link'
