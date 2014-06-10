@@ -86,7 +86,7 @@ Rails.application.configure do
     domain: "example.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "storeguardstoreguard@gmail.com",
-    password: "storeguard1234"
+    user_name: "xxx@gmail.com",
+    password: ""
   }
 end
