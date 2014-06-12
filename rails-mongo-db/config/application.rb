@@ -13,5 +13,6 @@ module RailsMongoDb
   class Application < Rails::Application
     Mongoid.logger.level = Logger::DEBUG
     Moped.logger.level = Logger::DEBUG
+    config.filter_parameters += [:password, :password_confirmation]
   end
 end
